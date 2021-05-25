@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template Literals</title>
+  </head>
+  <body>
+    <script>
+      const nombre = "Andres";
+      //functions
+      console.log(`Mi nombre es ${nombre}`);
+      console.log(
+        `Mi nombre es ${(function name() {
+          return "Areyes";
+        })()}`
+      );
+      //arrow functions
+      console.log(
+        `Mi nombre es ${(() => {
+          return "reyes";
+        })()}`
+      );
+      //ternarios
+      console.log(`Mi nombre es ${true && "andres ternary"}`);
+      console.log(`Mi nombre es ${false ? "areyes true" : "areyes false"}`);
+      //map
+      console.log(
+        `Mo nombre es ${["a", "b"].map((letra) => `${letra}-styled`)}`
+      );
+    </script>
+  </body>
+</html>
