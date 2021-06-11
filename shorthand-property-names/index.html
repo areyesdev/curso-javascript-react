@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shorthand property names</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>
+        La mejor. <br />
+        Para los mejores
+      </h1>
+      <div class="hero">
+        <div class="wrapper">
+          <div class="hero-content">
+            <div class="mac"></div>
+            <div class="app">
+              <p>
+                <strong> Precio: </strong>
+                <span id="price">-</span>
+              </p>
+              <p>
+                <strong> Precio oferta: </strong>
+                <span id="offer">-</span>
+              </p>
+              <p>
+                <strong> Precio Final: </strong>
+                <span id="final-price">-</span>
+              </p>
+              <button class="button" id="make-offer">Regatear</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      const price = 5800000;
+      const mackbook = {
+        price,
+        get finalPrice() {
+          return this.price * 1.19;
+        },
+        set offer(offer) {
+          this.price -= offer;
+        },
+        getPrice() {
+          console.log(this.price);
+        },
+        *discount(offer) {
+          let price = this.finalPrice;
+          while (true) {
+            yield (price -= offer);
+          }
+        },
+      };
+      window.price.textContent = mackbook.price;
+      mackbook.offer = 1000000;
+      window.offer.textContent = mackbook.price;
+      window["final-price"].textContent = mackbook.finalPrice;
+
+      const makeAnOffer = mackbook.discount(53400);
+      window["make-offer"].addEventListener("click", () => {
+        window["final-price"].textContent = makeAnOffer.next().value;
+      });
+    </script>
+  </body>
+</html>
