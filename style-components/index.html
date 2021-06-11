@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Style Components</title>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      function component(strings, ...dynamicValues) {
+        return function (props) {
+          let newContent = strings.slice();
+          console.log(newContent);
+          dynamicValues.forEach((value, index) => {
+            newContent[index] += props[value];
+          });
+          return newContent.join("");
+        };
+      }
+      const styled = {
+        h1: function (styles) {
+          return function (content) {
+            return `
+            <h1 style="${styles}">
+              ${content}
+            </h1>
+          `;
+          };
+        },
+      };
+
+      const TitleStyled = styled.h1`
+        font-family: system-ui;
+        color: orange;
+        font-size: 30px;
+        text-shadow: 1px 1px 0 black;
+        line-height: 100vh;
+      `;
+      const props = {
+        message: "No te Rindas",
+        name: "Andres",
+      };
+      const Title = component`---- ${"message"} ---- ${"name"}`(props);
+
+      function render(component, container) {
+        container.innerHTML = component;
+      }
+      render(TitleStyled(Title), window.container);
+    </script>
+  </body>
+</html>
