@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+import { render } from "./lib/react-dom.js";
+import User from "./components/user.js";
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles.css">
-  <title>React</title>
-</head>
+const container = document.querySelector("#root");
 
-<body>
-  <div id="root"></div>
-  <script src="./index.js" type="module"></script>
-</body>
-
-</html
+render(
+  new User({
+    avatar: "./images/ash.jpg",
+    name: "Ash",
+  }),
+  container
+);
