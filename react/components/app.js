@@ -13,6 +13,10 @@ class App extends Component {
               name: "Ash",
               avatar: "./images/ash.jpg",
             }).render()}
+            ${new UserStyled({
+              name: "Ash",
+              avatar: "./images/ash.jpg",
+            }).render()}
           `,
         }).render()}
       </div>
