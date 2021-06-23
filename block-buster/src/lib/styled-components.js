@@ -14,6 +14,8 @@ const elements = [
   "input",
   "button",
   "select",
+  "section",
+  "span",
 ];
 
 function buildStyles(strings, dynamicValues, props) {

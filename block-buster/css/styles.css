@@ -27,15 +27,6 @@ body {
 .actions > *::after:last-child {
   display: none;
 }
-
-.movie-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 200px);
-  justify-content: center;
-  box-sizing: border-box;
-  gap: 1em;
-}
-
 .movie {
   position: relative;
   transition: 1s;
