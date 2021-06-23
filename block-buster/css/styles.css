@@ -28,32 +28,6 @@ body {
   display: none;
 }
 
-form {
-  /* border: 1px solid red; */
-  min-width: 320px;
-  display: flex;
-  gap: 0.5em;
-}
-input {
-  font-size: 1rem;
-  font-family: system-ui;
-  padding: 0.5em 1em;
-  flex: 1;
-}
-select {
-  font-size: 1rem;
-  padding: 0 1em;
-  border-radius: 0.5em;
-}
-button {
-  font-size: 1rem;
-  background: #3f69ff;
-  padding: 1em;
-  color: white;
-  border: none;
-  border-radius: 0.5em;
-}
-
 .movie-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 200px);
