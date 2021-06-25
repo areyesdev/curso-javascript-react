@@ -4,6 +4,7 @@ import styled from "../lib/styled-components.js";
 import store from "../store.js";
 import Movie from "./movie.js";
 import Wrapper from "./wrapper.js";
+import api from "../api.js";
 
 const MovieListStyled = styled.section`
   display: grid;
@@ -15,6 +16,10 @@ const MovieListStyled = styled.section`
 
 class MovieList extends Component {
   state = {};
+  async componentDidMount() {
+    const page10 = await api.moviePage(10);
+    console.log(page10);
+  }
   render() {
     const state = store.getState();
     const movieListId = state.list[state.filter];
