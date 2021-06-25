@@ -14,14 +14,15 @@ const MovieListStyled = styled.section`
 `;
 
 class MovieList extends Component {
-  state = {
-    movies: store.getState().movieList,
-  };
+  state = {};
   render() {
-    const { movies } = this.state;
+    const state = store.getState();
+    const movieListId = state.list[state.filter];
+    const movieList = state.movieList;
+    console.log(state);
     return Wrapper({
       children: MovieListStyled({
-        children: movies.map((movie) => new Movie(movie)),
+        children: movieListId.map((id) => new Movie(movieList.get(id))),
       }),
     });
   }
