@@ -4,7 +4,7 @@ class Movie extends Component {
   render() {
     const { poster_path, title, id, vote_average } = this.props;
     return createElement("article", {
-      class: `movie ${vote_average >= 8 ? "recommended" : ""}`,
+      class: `movie ${vote_average >= 7 ? "recommended" : ""}`,
       children: [
         createElement("img", {
           class: "movie-poster",
